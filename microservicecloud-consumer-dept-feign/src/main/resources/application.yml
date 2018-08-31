@@ -1,0 +1,25 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: microserviceCloud-consumer-dept-feign
+
+feign: 
+  hystrix: 
+    enabled: true  #　如果Hystrix在类路径上并且feign.hystrix.enabled = true，
+                  # Feign将用断路器包装所有方法。还可以返回
+
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:      
+    instance-id: microserviceCloud-consumer-dept-feign   #自定义服务名称
+    prefer-ip-address: true #访问路径可以显示IP地址        
+    
+info: 
+  app.name: microserviceCloud-consumer-dept-80
+  company.name: www.yangheng.com  
+  build.artigactId: ${project.artifactId}$
+  build.version:  $project.version$
